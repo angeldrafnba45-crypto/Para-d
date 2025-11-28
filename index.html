@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invitación Premium Para Daniela</title>
+
+    <!-- Fuente elegante premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            --gold: #f5d18c;
+            --gold-light: #ffe9b8;
+            --dark: #1a1a1a;
+            --card: #ffffff;
+            --primary: #e63a78;
+            --soft: #ffe6ef;
+        }
+        
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #1b1b1b, #3a0014);
+            font-family: "Poppins", sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .wrap {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+        }
+        /* Tarjeta premium */
+        
+        .card {
+            width: min(760px, 92vw);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 38px 44px;
+            border-radius: 26px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+            animation: fadeIn 1s ease;
+        }
+        /* Glow premium */
+        
+        .card.glow {
+            box-shadow: 0 0 50px var(--primary), 0 0 120px rgba(230, 58, 120, 0.6);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .title {
+            font-family: "Playfair Display", serif;
+            font-size: 36px;
+            text-align: center;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+        }
+        
+        .sub {
+            text-align: center;
+            color: #ddd;
+            margin-top: 6px;
+            font-size: 15px;
+            opacity: 0.8;
+        }
+        /* Botones */
+        
+        .actions {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+        }
+        
+        .btn {
+            padding: 14px 22px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: .25s ease;
+        }
+        
+        .btn-yes {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 6px 20px rgba(230, 58, 120, 0.5);
+        }
+        
+        .btn-yes:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(230, 58, 120, 0.7);
+        }
+        
+        .escape-zone {
+            width: 180px;
+            height: 60px;
+            position: relative;
+        }
+        
+        .btn-no {
+            background: #444;
+            color: #bbb;
+            border: 1px solid #666;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        /* TEXTO PREMIUM EN VEZ DE SOBE */
+        
+        .envelope {
+            display: none;
+            margin-top: 35px;
+            text-align: center;
+            cursor: pointer;
+            animation: fadeIn 1s ease;
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: var(--gold-light);
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+            transition: 0.3s;
+        }
+        
+        .envelope:hover {
+            transform: scale(1.06);
+            text-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
+        }
+        /* CARTA */
+        
+        .letter {
+            display: none;
+            margin-top: 28px;
+            background: white;
+            color: #333;
+            padding: 24px;
+            border-radius: 14px;
+            font-size: 16px;
+            line-height: 1.6;
+            animation: slideUp .7s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Corazones premium */
+        
+        .heart {
+            position: fixed;
+            font-size: 28px;
+            opacity: 0;
+            animation: floatHeart 6s ease forwards;
+            pointer-events: none;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+        }
+        
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-140vh) scale(1.4);
+                opacity: 0;
+            }
+        }
+        
+        .extra {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 17px;
+            color: var(--gold-light);
+            display: none;
+            font-weight: 500;
+            animation: fadeIn 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Música romántica suave -->
+    <audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2c4c31c6c7.mp3?filename=romantic-piano-ambient-110397.mp3"></audio>
+
+    <div class="wrap">
+        <div class="card" id="card">
+
+            <div class="title">Invitación para Daniela</div>
+            <p class="sub">Elegante, suave… y directo al corazón.</p>
+
+            <div class="actions">
+                <button class="btn btn-yes" id="btnYes">Aceptar invitación ✨</button>
+                <div class="escape-zone" id="zone">
+                    <button class="btn btn-no" id="btnNo">Rechazar 😳</button>
+                </div>
+            </div>
+
+            <!-- TEXTO QUE SE TOCA -->
+            <div class="envelope" id="envelope">
+                ✨ Toca aquí, Dani 💗 ✨
+            </div>
+
+            <!-- CARTA -->
+            <div class="letter" id="letter">
+                Daniela… Solo quiero decirte algo simple:
+                <strong>vos me gustás más de lo que este mundo permite.</strong> Y este sábado quiero tenerte cerca, sin prisa, sin ruido… solo vos y yo, bonito… como debe ser corazoncito. 💗
+            </div>
+
+            <div class="extra" id="extra">Sabía que dirías que sí… 😭💗</div>
+
+        </div>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById('btnNo');
+        const zone = document.getElementById('zone');
+        const btnYes = document.getElementById('btnYes');
+        const envelope = document.getElementById('envelope');
+        const letter = document.getElementById('letter');
+        const extra = document.getElementById('extra');
+        const card = document.getElementById('card');
+        const music = document.getElementById('music');
+
+        function rand(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function moveNo(e) {
+            const rect = zone.getBoundingClientRect();
+            const btnRect = btnNo.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            const btnCX = btnRect.left - rect.left + btnRect.width / 2;
+            const btnCY = btnRect.top - rect.top + btnRect.height / 2;
+            const dist = Math.hypot(mouseX - btnCX, mouseY - btnCY);
+
+            if (dist < 85) {
+                const nx = rand(0, rect.width - btnRect.width);
+                const ny = rand(0, rect.height - btnRect.height);
+                btnNo.style.transform = `translate(${nx}px, ${ny}px)`;
+            }
+        }
+
+        zone.addEventListener('mousemove', moveNo);
+
+        btnYes.addEventListener('click', () => {
+            music.play();
+            card.classList.add("glow");
+            envelope.style.display = "block";
+            launchHearts();
+        });
+
+        envelope.addEventListener('click', () => {
+            envelope.style.display = "none";
+            letter.style.display = "block";
+            extra.style.display = "block";
+            launchHearts();
+        });
+
+        function launchHearts() {
+            const symbols = ['💖', '✨', '❤️‍🔥', '💗', '💕'];
+            for (let i = 0; i < 35; i++) {
+                const h = document.createElement("div");
+                h.className = "heart";
+                h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                h.style.left = rand(0, 100) + "vw";
+                h.style.bottom = "-20px";
+                h.style.animationDelay = rand(0, 2) + "s";
+                document.body.appendChild(h);
+                setTimeout(() => h.remove(), 6000);
+            }
+        }
+    </script>
+</body>
+
+</html>
